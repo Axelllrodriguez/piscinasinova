@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "CG-6PJqDdGpt1HoESJZZr"
+uri = "file://artifacts/innova-piscinas/public/hero-pool.png"
+type = "image"
+title = "hero pool sunset"
+
+[[generated]]
+id = "wP6H4WZvhSn_eLXdjO6h8"
+uri = "file://artifacts/innova-piscinas/public/pool-overhead.png"
+type = "image"
+title = "pool overhead view"
+
+[[generated]]
+id = "dldAbuWey4-MbUSGLaiAY"
+uri = "file://artifacts/innova-piscinas/public/water-ripple.png"
+type = "image"
+title = "water ripple macro"
+
+[[generated]]
+id = "F09R414VnpExhVTz0htop"
+uri = "file://artifacts/innova-piscinas/public/pool-night.png"
+type = "image"
+title = "pool night lights"

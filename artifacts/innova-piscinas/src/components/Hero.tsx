@@ -49,9 +49,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-primary/40 mix-blend-multiply z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10" />
         <img 
-          src="https://www.innovapiscinas.com.ar/web/wp-content/uploads/piletas-de-fibra-_0002_Capa-4-1500x630.jpg" 
+          src="/hero-pool.png" 
           alt="Piscina hero background" 
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-90"
         />
       </div>
 

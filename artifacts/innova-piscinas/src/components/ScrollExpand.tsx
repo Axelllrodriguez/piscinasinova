@@ -25,7 +25,7 @@ export function ScrollExpand() {
         >
           <div className="w-[300px] h-[400px] md:w-[400px] md:h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">
             <img 
-              src="https://www.innovapiscinas.com.ar/web/wp-content/uploads/piletas-de-fibra-_0002_Capa-4-1500x630.jpg"
+              src="/pool-overhead.png"
               alt="Piscina expanding view"
               className="w-full h-full object-cover"
             />
