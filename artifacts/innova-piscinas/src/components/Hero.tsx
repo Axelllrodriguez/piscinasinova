@@ -159,30 +159,39 @@ export function Hero() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.65 }}
-          className="flex gap-4 justify-center flex-wrap"
+          className="flex gap-3 justify-center flex-wrap"
         >
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-accent text-white rounded-full px-10 py-6 text-lg h-auto shadow-lg shadow-primary/30"
-            asChild
+          {/* Primary CTA */}
+          <motion.a
+            href="#modelos"
+            data-testid="button-ver-modelos"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white font-semibold text-base rounded-full px-8 py-4 shadow-xl shadow-primary/40 transition-colors duration-300"
           >
-            <a href="#modelos" data-testid="button-ver-modelos">Ver Modelos</a>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-white/40 text-white bg-white/10 hover:bg-white/20 rounded-full px-10 py-6 text-lg h-auto backdrop-blur-sm"
-            asChild
+            Ver Modelos
+            <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </motion.a>
+
+          {/* Ghost CTA */}
+          <motion.a
+            href="https://wa.me/5493543437295?text=Hola!%20Me%20interesa%20una%20piscina."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="button-whatsapp-hero"
+            whileHover={{ scale: 1.04, backgroundColor: "rgba(255,255,255,0.15)" }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 border border-white/35 text-white font-semibold text-base rounded-full px-8 py-4 bg-white/8 backdrop-blur-md transition-colors duration-300"
           >
-            <a
-              href="https://wa.me/5493543437295"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="button-whatsapp-hero"
-            >
-              Consultar ahora
-            </a>
-          </Button>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.12 1.523 5.845L0 24l6.335-1.49A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6a9.563 9.563 0 01-4.885-1.338l-.35-.208-3.621.852.9-3.528-.228-.362A9.565 9.565 0 012.4 12c0-5.295 4.305-9.6 9.6-9.6 5.295 0 9.6 4.305 9.6 9.6 0 5.295-4.305 9.6-9.6 9.6z"/>
+            </svg>
+            Consultar ahora
+          </motion.a>
         </motion.div>
       </div>
     </section>
