@@ -38,52 +38,66 @@ export function Hero() {
       ref={containerRef}
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* ─── SVG water-distortion filter (hidden, 0×0) ─── */}
+      {/* ─── SVG water-distortion filter (hidden) ─── */}
       <svg
         aria-hidden="true"
         style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
       >
         <defs>
-          <filter id="water-wave" x="0%" y="0%" width="100%" height="100%">
+          {/*
+            filterRegion set to exact 0-100% so the displaced pixels
+            cannot sample from outside the element bounds.
+          */}
+          <filter
+            id="water-wave"
+            x="0%" y="0%" width="100%" height="100%"
+            colorInterpolationFilters="linearRGB"
+          >
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.012 0.006"
-              numOctaves="4"
-              seed="3"
+              baseFrequency="0.010 0.005"
+              numOctaves="3"
+              seed="5"
               result="turb"
             >
-              {/* gently shift base frequency to create organic wave motion */}
               <animate
                 attributeName="baseFrequency"
-                dur="9s"
-                values="0.012 0.006;0.016 0.009;0.013 0.007;0.012 0.006"
+                dur="10s"
+                values="0.010 0.005;0.014 0.008;0.011 0.006;0.010 0.005"
                 repeatCount="indefinite"
               />
             </feTurbulence>
             <feDisplacementMap
               in="SourceGraphic"
               in2="turb"
-              scale="14"
+              scale="10"
               xChannelSelector="R"
               yChannelSelector="G"
+              result="displaced"
             />
+            {/*
+              feComposite "in" clips the displaced output back to
+              the alpha of the source — prevents bleed outside element.
+            */}
+            <feComposite in="displaced" in2="SourceGraphic" operator="in" />
           </filter>
         </defs>
       </svg>
 
-      {/* ─── Layer 1: fully static background image ─── */}
+      {/* ─── Layer 1: static base image ─── */}
       <img
         src="/hero-pool.png"
         alt="Piscina hero background"
-        className="absolute inset-0 w-full h-full object-cover opacity-90"
+        className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 1 }}
       />
 
-      {/* ─── Layer 2: same image clipped to pool area + water distortion filter ─── */}
       {/*
-          The pool in the hero image occupies roughly the lower 48% of the frame,
-          running diagonally. The clip-path isolates just that water surface region.
-          The water-wave SVG filter applies organic turbulence to only this clip.
+        ─── Layer 2: water distortion — masked to the pool surface only ───
+        mask-image fades in only over the lower ~35-40% of the frame
+        (where the pool water lives in the photo).
+        The SVG filter distorts only what's visible through the mask,
+        so trees/grass/sky are never touched.
       */}
       <div
         aria-hidden="true"
@@ -91,24 +105,27 @@ export function Hero() {
           position: "absolute",
           inset: 0,
           zIndex: 2,
-          clipPath: "polygon(0% 52%, 55% 42%, 100% 50%, 100% 100%, 0% 100%)",
           filter: "url(#water-wave)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 52%, rgba(0,0,0,0.6) 60%, black 68%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 52%, rgba(0,0,0,0.6) 60%, black 68%)",
         }}
       >
         <img
           src="/hero-pool.png"
           alt=""
-          className="w-full h-full object-cover opacity-90"
+          className="w-full h-full object-cover"
         />
       </div>
 
       {/* ─── Layer 3: gradient overlays ─── */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/75"
+        className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/70"
         style={{ zIndex: 3 }}
       />
       <div
-        className="absolute inset-0 bg-primary/25 mix-blend-multiply"
+        className="absolute inset-0 bg-primary/20 mix-blend-multiply"
         style={{ zIndex: 4 }}
       />
 
@@ -124,9 +141,7 @@ export function Hero() {
           className="text-5xl md:text-7xl lg:text-[90px] font-bold tracking-tight mb-6 leading-none"
         >
           Tu piscina en{" "}
-          <span className="text-primary" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}>
-            5 días
-          </span>
+          <span className="text-primary">5 días</span>
         </motion.h1>
 
         <motion.p
@@ -170,22 +185,6 @@ export function Hero() {
           </Button>
         </motion.div>
       </div>
-
-      {/* ─── scroll indicator ─── */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50"
-        style={{ zIndex: 10 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          className="w-px h-8 bg-white/30"
-          animate={{ scaleY: [1, 0.3, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
     </section>
   );
 }
