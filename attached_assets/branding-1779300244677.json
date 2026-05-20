@@ -1,0 +1,150 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Arial",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica",
+      "role": "body"
+    },
+    {
+      "family": "Open Sans",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica Neue",
+      "role": "body"
+    },
+    {
+      "family": "Finger Paint",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#69AFD2",
+    "secondary": "#36A8C7",
+    "accent": "#109BC5",
+    "background": "#FFFFFF",
+    "textPrimary": "#000000",
+    "link": "#109BC5"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Arial",
+      "heading": "Finger Paint"
+    },
+    "fontStacks": {
+      "heading": [
+        "Open Sans",
+        "Helvetica",
+        "Arial",
+        "sans-serif"
+      ],
+      "body": [
+        "Open Sans",
+        "Helvetica",
+        "Arial",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Open Sans",
+        "Helvetica",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "30px",
+      "h2": "70px",
+      "body": "25px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#109BC5",
+      "textColor": "#FFFFFF",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#B02B2C",
+      "textColor": "#FFFFFF",
+      "borderRadius": "3px",
+      "borderRadiusCorners": {
+        "topLeft": "3px",
+        "topRight": "3px",
+        "bottomRight": "3px",
+        "bottomLeft": "3px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://www.innovapiscinas.com.ar/web/wp-content/uploads/innova_logo_head-b.png",
+    "favicon": "https://www.innovapiscinas.com.ar/web/wp-content/uploads/favicon.ico",
+    "ogImage": "https://www.innovapiscinas.com.ar/web/wp-content/uploads/galeria_piscinas_tulum_02.jpg",
+    "logoHref": "https://www.innovapiscinas.com.ar/",
+    "logoAlt": "Innova Piscinas"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Selected #0 because it is visible, located in the header, links to the homepage, and matches the brand name 'Innova Piscinas'.",
+    "confidence": 0.95,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "OFERTAS DEL MES",
+      "reasoning": "Button #0 'OFERTAS DEL MES' has a vibrant blue background (#109BC5), which aligns with the brand's primary color and is likely intended to draw attention as a primary call-to-action."
+    },
+    "secondary": {
+      "index": 5,
+      "text": "+ OFERTAS",
+      "reasoning": "Button #5 '+ OFERTAS' has a distinct red/orange background (#B02B2C), making it suitable as a secondary CTA due to its different color group from the primary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "homeowners looking for swimming pools"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 0,
+        "selectedLogoReasoning": "Selected #0 because it is visible, located in the header, links to the homepage, and matches the brand name 'Innova Piscinas'.",
+        "confidence": 0.95
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
