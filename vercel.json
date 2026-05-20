@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm --filter ./artifacts/innova-piscinas build",
+  "outputDirectory": "artifacts/innova-piscinas/dist/public",
+  "env": {
+    "BASE_PATH": "/"
+  }
+}
